@@ -140,6 +140,7 @@ case "$1" in
     ;;
     stop)
     stop
+    clean
     ;;
     status)
     if [ "true" = "$($docker inspect --format='{{.State.Running}}' <%= @sanitised_title %> 2>/dev/null)" ]; then
@@ -152,6 +153,7 @@ case "$1" in
     ;;
     restart|reload)
     stop
+    clean
     start
     ;;
     clean)
