@@ -245,8 +245,6 @@ define docker::run(
           ($::operatingsystem == 'Ubuntu' and versioncmp($::operatingsystemrelease, '15.04') >= 0) {
           $initscript = "/etc/systemd/system/${service_prefix}${sanitised_title}.service"
           $init_template = 'docker/etc/systemd/system/docker-run.erb'
-          $docker_version_script = "/etc/systemd/system/docker-${sanitised_title}-version.sh"
-          $docker_version_template = 'docker/etc/systemd/system/docker-version.erb'
           $uses_systemd = true
           $mode = '0644'
         } else {
@@ -310,14 +308,6 @@ define docker::run(
 
     }
     else {
-
-      if $uses_systemd {
-        file { $docker_version_script:
-          ensure  => present,
-          content => template($docker_version_template),
-          mode    => '0755',
-        }
-      }
 
       file { $initscript:
         ensure  => present,
