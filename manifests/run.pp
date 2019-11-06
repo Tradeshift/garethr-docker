@@ -107,7 +107,7 @@ define docker::run(
   $remove_container_on_stop = true,
   $remove_volume_on_start = false,
   $remove_volume_on_stop = false,
-  $stop_wait_time = 0,
+  $stop_wait_time = 5,
   $syslog_identifier = undef,
 ) {
   include docker::params
