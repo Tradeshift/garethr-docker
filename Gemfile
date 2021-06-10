@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 group :test do
-  gem "rake", "~> 10.0"
+  gem "rake", ">= 12.3.3"
   if puppet_gem_version = ENV['PUPPET_GEM_VERSION']
     gem "puppet", puppet_gem_version
   elsif puppet_git_url = ENV['PUPPET_GIT_URL']

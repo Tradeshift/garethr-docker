@@ -8,5 +8,4 @@ doc
 *.swp
 .ruby-version
 log
-Gemfile.lock
 coverage/*
